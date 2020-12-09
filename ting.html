@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>The Ting Slot Machine</title>
+    <!-- Framework CSS --> 
+    <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen, projection"> 
+    <link rel="stylesheet" href="stylesheets/print.css" type="text/css" media="print"> 
+    <!--[if lt IE 8]><link rel="stylesheet" href="stylesheets/ie.css" type="text/css" media="screen, projection"><![endif]--> 
+​
+    <!-- Import fancy-type plugin for the sample page. --> 
+    <link rel="stylesheet" href="stylesheets/fancy-type/screen.css" type="text/css" media="screen, projection">
+    
+    <!-- Page Specific Stylesheet -->
+    <link rel="stylesheet" href="stylesheets/styles.css" type="text/css" media="screen, projection">
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  </head>
+  <body id="home">
+    <div id='slotmachine'>
+      <div id="title">Get a Complement from Ting!</div>
+      <div id='slotdisplay'>
+        <div class='slotcarousel'>
+          <ul class='slotroller' id='firstroller'>
+            <li>You are</li>
+          </ul>
+        </div>
+        <div class='slotcarousel last'>
+          <ul class='slotroller' id='secondroller'>
+            <li>perfect the way you are.</li>
+            <li>a ray of sunshine.</li>
+            <li>amazing.</li>
+            <li>strong.</li>
+            <li>the best.</li>
+            <li>a smart cookie.</li>
+            <li>inspiring.</li>
+            <li>1% better every day.</li>
+          </ul>
+        </div>
+      </div>
+      <div id="console">
+        <a href='#' id='spin'>Spin</a>
+      </div>
+    </div>
+    <script type='text/javascript'> 
+      //<![CDATA[
+        $(document).ready(function() {
+          $('a#spin').click(function() {
+            resetWheels();
+            var firstRoller = 0;
+            var secondRoller = parseInt(Math.random() * 8);
+            
+            $('#firstroller').animate({top: '-' + firstRoller * 160 + 'px'}, 500);
+            $('#secondroller').animate({top: '-' + secondRoller * 160 + 'px'}, 500);
+            return false;
+          });
+        });
+        
+        function resetWheels() {
+          $('.slotroller').css('top', '0px');
+        }
+      //]]>
+    </script>
+  </body>
+</html>
